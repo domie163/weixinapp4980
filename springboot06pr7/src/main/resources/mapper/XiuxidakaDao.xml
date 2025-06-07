@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.XiuxidakaDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.XiuxidakaEntity" id="xiuxidakaMap">
+        <result property="dakabianhao" column="dakabianhao"/>
+        <result property="leixing" column="leixing"/>
+        <result property="shijian" column="shijian"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="yonghuzhanghao" column="yonghuzhanghao"/>
+        <result property="yonghuxingming" column="yonghuxingming"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.XiuxidakaVO" >
+		SELECT * FROM xiuxidaka  xiuxidaka         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.XiuxidakaVO" >
+		SELECT  xiuxidaka.* FROM xiuxidaka  xiuxidaka 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.XiuxidakaView" >
+
+		SELECT  xiuxidaka.* FROM xiuxidaka  xiuxidaka 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.XiuxidakaView" >
+		SELECT * FROM xiuxidaka  xiuxidaka <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>

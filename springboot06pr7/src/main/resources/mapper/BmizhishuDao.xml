@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.BmizhishuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BmizhishuEntity" id="bmizhishuMap">
+        <result property="bianhao" column="bianhao"/>
+        <result property="yonghuzhanghao" column="yonghuzhanghao"/>
+        <result property="yonghuxingming" column="yonghuxingming"/>
+        <result property="dengjishijian" column="dengjishijian"/>
+        <result property="zhishuzhi" column="zhishuzhi"/>
+        <result property="xiangqing" column="xiangqing"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BmizhishuVO" >
+		SELECT * FROM bmizhishu  bmizhishu         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BmizhishuVO" >
+		SELECT  bmizhishu.* FROM bmizhishu  bmizhishu 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BmizhishuView" >
+
+		SELECT  bmizhishu.* FROM bmizhishu  bmizhishu 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BmizhishuView" >
+		SELECT * FROM bmizhishu  bmizhishu <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
